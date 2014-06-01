@@ -12,5 +12,9 @@
     "grunt"
   ],
   "author": "Steven Bassett <steven.j.bassett@gmail.com>",
-  "license": "BSD-2"
+  "license": "BSD-2",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-sass": "0.7.3"
+  }
 }
