@@ -1,0 +1,16 @@
+{
+  "name": "awesome_theme",
+  "version": "0.0.0",
+  "description": "An awesome drupal theme",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "Drupal",
+    "theme",
+    "grunt"
+  ],
+  "author": "Steven Bassett <steven.j.bassett@gmail.com>",
+  "license": "BSD-2"
+}
