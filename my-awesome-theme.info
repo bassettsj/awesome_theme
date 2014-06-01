@@ -1,0 +1,5 @@
+name= My Awesome Theme
+description= A theme the harnesses the awesome power of grunt.
+
+css[all][]= dist/css/my-awesome-theme.min.css
+js[]  = dist/js/my-awesome-theme.pkg.min.js
