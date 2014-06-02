@@ -2,11 +2,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     package: grunt.file.readJSON('package.json'),
-    banner:
-        "/*! <%= package.title || package.name %> - v<%= package.version %> - "
-      + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n"
-      + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= package.author.name %>;"
-      + " Licensed <%= package.licenses %> */\n",
+    banner: "/*! <%= package.title || package.name %> - v<%= package.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n" + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= package.author.name %>;" + " Licensed <%= package.licenses %> */\n",
     // task
     sass: {
       // target
@@ -33,7 +29,10 @@ module.exports = function(grunt) {
         options: {
           map: true
         },
-        src: 'dist/css/**/*.css' // can leave the dest off
+        src: [
+          'dist/css/**/*.css',
+          '!dist/css/**/*.min.css',
+        ] // can leave the dest off
       }
     },
     cssmin: {
@@ -51,11 +50,21 @@ module.exports = function(grunt) {
         ext: '.min.css',
         dest: 'dist/css/'
       }
+    },
+    watch: {
+      scss: {
+        files: 'scss/**/*.scss',
+        tasks: [
+          'sass:theme',
+          'autoprefixer:theme'
+        ]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   grunt.registerTask(
