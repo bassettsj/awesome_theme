@@ -7,7 +7,7 @@
 'use strict';
 
 var $ = require('jquery'); // just refers to window.jQuery for this.
-require('bootstrap')();
+require('bootstrap');
 var expand = require('./expand.js');
 
 $(function(){
