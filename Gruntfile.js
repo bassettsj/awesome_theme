@@ -33,8 +33,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask(
     'default',
-    'Compile SASS & Vendor Prefix',
-    [
+    'Compile SASS & Vendor Prefix', [
       'sass:theme',
       'autoprefixer:theme'
     ]
