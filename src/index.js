@@ -3,10 +3,12 @@
  * main JS file for awesome theme
  *
  */
-(function($){
-  var Drupal = window.Drupal || {behaviours: function(settings){}};
+'use strict';
 
-  Drupal.behaviours.attach( settings ){
+var $ = require('jquery'); // just refers to window.jQuery for this.
 
-  };
-})(jQuery)
+var expand = require('./expand.js');
+
+$(function(){
+  expand($); //Call the small module
+});
