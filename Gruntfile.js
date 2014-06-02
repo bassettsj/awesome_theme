@@ -25,7 +25,6 @@ module.exports = function(grunt) {
         files: [{
           dest: 'dist/css/awesome-theme.css',
           src: 'scss/main.scss'
-        }, {
 
         }]
       }
@@ -117,6 +116,35 @@ module.exports = function(grunt) {
     },
     clean: {
       dist: ['dist']
+    },
+    phplint: {
+      template: ['template.php']
+    },
+    phpcs: {
+      theme: {
+        dir: ['template.php'],
+        options: {
+          bin: './vendor/bin/phpcs',
+          standard: 'Drupal'
+        }
+      }
+    },
+    drush: {
+      disjscss:{
+        args: ['vset preprocess 0']
+      },
+      enjscss:{
+        args: ['vset preprocess 1']
+      },
+      ccthemereg:{
+        args: ['cc theme-registry']
+      },
+      enthemer:{
+        args: ['en devel_themer simplehtmldom -y']
+      },
+      disthemer:{
+        args: ['dis devel_themer simplehtmldom -y']
+      }
     }
   });
 
@@ -128,7 +156,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
-
+  grunt.loadNpmTasks('grunt-phplint');
+  grunt.loadNpmTasks('grunt-phpcs');
+  
   grunt.registerTask(
     'default',
     'build css', [

@@ -1,0 +1,14 @@
+{
+    "name": "bassettsj/awesome_theme",
+    "description": "Aweseome theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steven Bassett",
+            "email": "steven.j.bassett@gmail.com"
+        }
+    ],
+    "require": {
+      "drupal/coder": "*"
+    }
+}
