@@ -4,7 +4,11 @@ module.exports = function(grunt) {
   'use strict';
   grunt.initConfig({
     package: grunt.file.readJSON('package.json'),
-    banner: "/*! <%= package.title || package.name %> - v<%= package.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n" + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= package.author.name %>;" + " Licensed <%= package.licenses %> */\n",
+    banner:
+      "/*! <%= package.title || package.name %> - v<%= package.version %> - "
+      + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n"
+      + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= package.author.name %>;"
+      + " Licensed <%= package.licenses %> */\n",
     // task
     sass: {
       // target
@@ -91,6 +95,12 @@ module.exports = function(grunt) {
           src: 'src/**/*.js'
         }
       }
+    },
+    browserify: {
+      themejs: {
+        dest: './dist/js/awesome-theme.pkg.js',
+        src: './src/index.js'
+      }
     }
   });
 
@@ -99,6 +109,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask(
     'default',
@@ -116,6 +127,10 @@ module.exports = function(grunt) {
   );
   grunt.registerTask(
     'buildjs',
-    'Lint, test and bundle theme\'s JS', ['jshint:themejs']
+    'Lint, test and bundle theme\'s JS',
+    [
+      'jshint:themejs',
+      'browserify:themejs'
+    ]
   );
 };

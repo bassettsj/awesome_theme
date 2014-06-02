@@ -9,6 +9,7 @@
     "Drupal",
     "theme"
   ],
+  "main": "js/index.js",
   "license": "MIT",
   "ignore": [
     "**/.*",

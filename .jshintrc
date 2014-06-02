@@ -1,5 +1,6 @@
 {
   "browser"   : true,
+  "node"      : true,
   "curly"     : true,
   "eqeqeq"    : true,
   "forin"     : true,
@@ -20,6 +21,7 @@
     "matchMedia",
     "Backbone",
     "Modernizr",
-    "CKEDITOR"
+    "CKEDITOR",
+    ""
   ]
 }

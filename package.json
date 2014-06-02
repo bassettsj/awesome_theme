@@ -20,6 +20,20 @@
     "grunt-contrib-cssmin": "^0.9.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-jshint": "^0.10.0",
-    "jshint-stylish": "^0.2.0"
+    "jshint-stylish": "^0.2.0",
+    "browserify": "^4.1.6",
+    "grunt-browserify": "^2.1.0",
+    "grunt-autoprefixer": "^0.7.3",
+    "browserify-shim": "^3.5.0"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "drupal": "global:Drupal"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "debowerify"
+    ]
   }
 }

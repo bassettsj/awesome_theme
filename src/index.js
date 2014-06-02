@@ -3,9 +3,13 @@
  * main JS file for awesome theme
  *
  */
-(function($){
-  'use strict';
-  
 
+'use strict';
 
-})(jQuery);
+var $ = require('jquery'); // just refers to window.jQuery for this.
+require('bootstrap')();
+var expand = require('./expand.js');
+
+$(function(){
+  expand($); //Call the small module
+});
