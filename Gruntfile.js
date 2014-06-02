@@ -101,6 +101,19 @@ module.exports = function(grunt) {
         dest: './dist/js/awesome-theme.pkg.js',
         src: './src/index.js'
       }
+    },
+    uglify: {
+      themejs: {
+        options:{
+          sourceMap: true,
+          banner: '<%= banner %>'
+        },
+        src: '<%= browserify.themejs.dest  %>',
+        dest: './dist/js/',
+        ext: '.pkg.min.js',
+        expand: true,
+        flatten: true
+      }
     }
   });
 
@@ -110,6 +123,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask(
     'default',
@@ -130,7 +144,8 @@ module.exports = function(grunt) {
     'Lint, test and bundle theme\'s JS',
     [
       'jshint:themejs',
-      'browserify:themejs'
+      'browserify:themejs',
+      'uglify:themejs'
     ]
   );
 };

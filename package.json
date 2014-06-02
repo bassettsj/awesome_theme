@@ -23,8 +23,8 @@
     "jshint-stylish": "^0.2.0",
     "browserify": "^4.1.6",
     "grunt-browserify": "^2.1.0",
-    "grunt-autoprefixer": "^0.7.3",
-    "browserify-shim": "^3.5.0"
+    "browserify-shim": "^3.5.0",
+    "grunt-contrib-uglify": "^0.4.0"
   },
   "browserify-shim": {
     "jquery": "global:jQuery",
