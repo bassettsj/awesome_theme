@@ -1,6 +1,9 @@
 name= My Awesome Theme
 description= A theme the harnesses the awesome power of grunt.
-base_theme= kalatheme
+base theme= kalatheme
+core = 7.x
 
-css[all][]= dist/css/my-awesome-theme.min.css
-js[]  = dist/js/my-awesome-theme.pkg.min.js
+stylesheets[all][]= dist/css/awesome-theme.min.css
+scripts[]  = dist/js/awesome-theme.pkg.min.js
+
+settings[bootstrap_library]= 'none'
