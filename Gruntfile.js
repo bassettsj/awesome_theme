@@ -20,11 +20,21 @@ module.exports = function(grunt){
     },
     phplint: {
       template: ['template.php']
+    },
+    phpcs: {
+      theme: {
+        dir: ['template.php'],
+        options: {
+          bin: './vendor/bin/phpcs',
+          standard: 'Drupal'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-phplint');
+  grunt.loadNpmTasks('grunt-phpcs');
   grunt.registerTask(
     'default',
     'Compile SASS',
