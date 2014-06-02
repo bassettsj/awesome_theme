@@ -4,9 +4,8 @@
  *
  */
 (function($){
-  var Drupal = window.Drupal || {behaviours: function(settings){}};
+  'use strict';
+  
 
-  Drupal.behaviours.attach( settings ){
 
-  };
-})(jQuery)
+})(jQuery);

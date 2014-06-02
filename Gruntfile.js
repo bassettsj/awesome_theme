@@ -1,5 +1,7 @@
+/* global module */
+/* global require */
 module.exports = function(grunt) {
-
+  'use strict';
   grunt.initConfig({
     package: grunt.file.readJSON('package.json'),
     banner: "/*! <%= package.title || package.name %> - v<%= package.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n" + "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= package.author.name %>;" + " Licensed <%= package.licenses %> */\n",
@@ -58,6 +60,36 @@ module.exports = function(grunt) {
           'sass:theme',
           'autoprefixer:theme'
         ]
+      },
+      js: {
+        files: 'src/**/*.js',
+        tasks: 'buildjs'
+      },
+      grunt: {
+        files: 'Gruntfile.js',
+        tasks: 'jshint:grunt'
+      },
+      livereload: {
+        files: 'dist/**/*{.js|.css}', // Will only trigger reload once they are done being done.
+        options: {
+          livereload: true
+        }
+      }
+    },
+    jshint: {
+      options: {
+        jshintrc: true,
+        reporter: require('jshint-stylish')
+      },
+      grunt: {
+        files: {
+          src: 'Gruntfile.js'
+        }
+      },
+      themejs: {
+        files: {
+          src: 'src/**/*.js'
+        }
       }
     }
   });
@@ -66,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask(
     'default',
@@ -80,5 +113,9 @@ module.exports = function(grunt) {
       'autoprefixer:theme',
       'cssmin:theme'
     ]
+  );
+  grunt.registerTask(
+    'buildjs',
+    'Lint, test and bundle theme\'s JS', ['jshint:themejs']
   );
 };
