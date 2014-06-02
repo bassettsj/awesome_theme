@@ -29,6 +29,23 @@ module.exports = function(grunt){
           standard: 'Drupal'
         }
       }
+    },
+    drush: {
+      disjscss:{
+        args: ['vset preprocess 0']
+      },
+      enjscss:{
+        args: ['vset preprocess 1']
+      },
+      ccthemereg:{
+        args: ['cc theme-registry']
+      },
+      enthemer:{
+        args: ['en devel_themer simplehtmldom -y']
+      },
+      disthemer:{
+        args: ['dis devel_themer simplehtmldom -y']
+      }
     }
   });
 
