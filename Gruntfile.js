@@ -13,6 +13,8 @@ module.exports = function(grunt){
         files: [{
           dest: 'dist/css/awesome-theme.css',
           src: 'scss/main.scss'
+        },{
+          
         }]
       }
     }
