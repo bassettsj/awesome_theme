@@ -14,14 +14,17 @@ module.exports = function(grunt){
           dest: 'dist/css/awesome-theme.css',
           src: 'scss/main.scss'
         },{
-          
+
         }]
       }
+    },
+    phplint: {
+      template: ['template.php']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
-
+  grunt.loadNpmTasks('grunt-phplint');
   grunt.registerTask(
     'default',
     'Compile SASS',
